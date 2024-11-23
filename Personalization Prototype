@@ -1,0 +1,206 @@
+import tkinter as tk
+from tkinter import messagebox
+
+# Function to show job results based on input
+def find_job():
+    job = job_var.get().lower()
+    area = area_var.get()
+   
+    # Job categories (mapped to your variable names)
+    a1 = "waitress/waiter"
+    a2 = "retail"
+    a3 = "barista"
+    a4 = "customer service"
+    a5 = "volunteer"
+   
+    b1 = "M5V-3L9"
+    b2 = "S2V-9N2"
+    b3 = "A0E-4N3"
+   
+    # Job descriptions (your job lists)
+    
+    a1b1 = """
+    Job 1: Location - 650 Chestnut St, Hours - 5/week, Pay - $15.10/hour
+    Job 2: Location - 784 Willow Creek Dr, Hours - 6/week, Pay - $15.00/hour
+    Job 3: Location - 209 Larchmont Rd, Hours - 4/week, Pay - $15.20/hour
+
+    """
+
+    a1b2 = """
+    Job 1: Location - 345 Redwood Ln, Hours - 8/week, Pay - $14.85/hour
+    Job 2: Location - 820 Sunset Blvd, Hours - 5/week, Pay - $14.95/hour
+    Job 3: Location - 91 Silverstream Ave, Hours - 7/week, Pay - $15.25/hour
+
+    """
+
+    a1b3 = """
+    Job 1: Location - 175 Cranberry Blvd, Hours - 9/week, Pay - $15.50/hour
+    Job 2: Location - 421 Maplewood Rd, Hours - 4/week, Pay - $15.00/hour
+    Job 3: Location - 256 Starling Ln, Hours - 6/week, Pay - $14.75/hour
+    
+    """
+
+    a2b1 = """
+    Job 1: Location - 63 Pine Valley Dr, Hours - 8/week, Pay - $15.00/hour
+    Job 2: Location - 14 Foxborough St, Hours - 5/week, Pay - $15.10/hour
+    Job 3: Location - 303 Wintergreen Dr, Hours - 7/week, Pay - $14.50/hour
+
+    """
+
+    a2b2 = """
+    Job 1: Location - 712 Brookside Blvd, Hours - 4/week, Pay - $15.00/hour
+    Job 2: Location - 167 Copperfield Rd, Hours - 6/week, Pay - $15.00/hour
+    Job 3: Location - 543 Chestnut Ridge Rd, Hours - 5/week, Pay - $15.25/hour
+
+    """
+
+    a2b3 = """
+    Job 1: Location - 108 Rosewood Dr, Hours - 9/week, Pay - $15.50/hour
+    Job 2: Location - 234 Maplewood St, Hours - 4/week, Pay - $14.90/hour
+    Job 3: Location - 432 Morningstar Blvd, Hours - 8/week, Pay - $15.00/hour
+
+    """
+
+    a3b1 = """
+    Job 1: Location - 512 Oakwood Dr, Hours - 5/week, Pay - $15.00/hour,
+    Job 2: Location - 312 Maple Ave, Hours - 6/week, Pay - $15.25/hour,
+    Job 3: Location - 891 Riverbend Rd, Hours - 7/week, Pay - $14.75/hour
+
+    """
+    a3b2 = """
+    Job 1: Location - 47 Birchwood Ln, Hours - 4/week, Pay - $15.00/hour
+    Job: 2: Location - 129 Pine St, Hours - 8/week, Pay - $15.50/hour
+    Job 3: Location - 604 Elm Rd, Hours - 5/week, Pay - $14.50/hour
+
+    """
+    a3b3 = """
+    Job 1: Location - 350 Spring Hill Dr, Hours - 9/week, Pay - $15.00/hour
+    Job 2: Location - 239 Greenfield Blvd, Hours - 6/week, Pay - $15.75/hour
+    Job 3: Location - 758 Meadowbrook Dr, Hours - 4/week, Pay - $14.90/hour
+
+    """
+
+    a4b1 = """
+    Job 1: Location - 681 Evergreen Ave, Hours - 7/week, Pay - $15.20/hour
+    Job 2: Location - 540 Crystal Ln, Hours - 5/week, Pay - $15.30/hour
+    Job 3: Location - 288 Hawthorne St, Hours - 6/week, Pay - $14.80/hour
+
+    """
+    a4b2 = """
+    Job 1: Location - 800 Highland Rd, Hours - 9/week, Pay - $15.10/hour
+    Job 2: Location - 194 Cedarwood Dr, Hours - 7/week, Pay - $15.40/hour
+    Job 3: Location - 421 Windswept Ave, Hours - 4/week, Pay - $15.25/hour
+
+    """
+    a4b3 = """
+    Job 1: Location - 505 Dawnview Blvd, Hours - 6/week, Pay - $14.90/hour
+    Job 2: Location - 356 Highlander Dr, Hours - 8/week, Pay - $15.00/hour
+    Job 3: Location - 14 Foxborough St, Hours - 5/week, Pay - $15.10/hour
+
+    """
+
+    a5b1 = """
+    These are the positions available in your area for "Volenteer" category
+    
+    Habitat for Humanity Build, length - 6-8 hours, organizer - [Habitat for Humanity], description - Help build homes for low-income families.
+
+    Community Garden Project, length - 3-4 hours, organizer - [Local Community Center], description - Assist with gardening and harvesting.
+
+    Crisis Hotline Volunteer, length - 3-4 hours, organizer - [Crisis Helpline], description - Provide emotional support to those in crisis over the phone.
+    """
+    a5b2 = """ 
+    These are the positions available in your area for "Volenteer" category
+    
+    Animal Shelter Care, length - 3-4 hours, organizer - [Local Animal Shelter], description - Walk dogs, clean cages, and feed animals.
+
+    Blood Donation Drive Support, length - 4-5 hours, organizer - [American Red Cross], description - Assist with registration and donor support at blood drives.
+
+    Tutoring for Students, length - 2 hours, organizer - [Local School or Nonprofit], description - Tutor students in subjects like math or English.
+    """
+    a5b3 = """These are the positions available in your area for "Volenteer" category
+    
+    Elderly Care Companion, length - 2-4 hours, organizer - [Local Senior Center], description - Spend time with seniors, helping with activities like reading or walking.
+
+    Soup Kitchen Volunteer, length - 4 hours, organizer - [Local Homeless Shelter], description - Help prepare and serve meals to the homeless.
+
+    Beach Cleanup, length - 3 hours, organizer - [Surfrider Foundation], description - Clean up trash and 
+    """
+
+
+
+
+    # Mapping job categories to descriptions
+    job_dict = {
+        a1: {b1: a1b1, b2: a1b2, b3: a1b3},
+        a2: {b1: a2b1, b2: a2b2, b3: a2b3},  # Placeholder, replace with actual data for retail jobs
+        a3: {b1: a3b1, b2: a3b2, b3: a3b3},  # Placeholder, replace with actual data for barista jobs
+        a4: {b1: a4b1, b2: a4b2, b3: a4b3},  # Placeholder, replace with actual data for customer service jobs
+        a5: {b1: a5b1, b2: a5b2, b3: a5b3},
+    }
+
+    # Check job type and area
+    if job in job_dict and area in job_dict[job]:
+        result_text = f"These are the positions available in your area for '{job}':\n\n{job_dict[job][area]}"
+    else:
+        result_text = "No results found for the selected job and area."
+
+    # Display the result in a pop-up message box
+    messagebox.showinfo("Job Results", result_text)
+
+# Create the main window
+root = tk.Tk()
+root.title("Jobs for Students")
+root.geometry("500x600")
+root.config(bg="lightblue")
+
+# Instructions label
+instructions = tk.Label(root, text="Welcome to JFS!! (Jobs for students)\nWould you mind telling us some minor details and information about yourself to help us find you a job you'll love?", 
+                        bg="lightblue", font=("Arial", 14), justify="center")
+instructions.pack(pady=10)
+
+# User Name Input
+name_label = tk.Label(root, text="What's your name?", bg="lightblue", font=("Arial", 12))
+name_label.pack(pady=5)
+
+name_entry = tk.Entry(root, font=("Arial", 12))
+name_entry.pack(pady=5)
+
+# Past Experiences Input
+experience_label = tk.Label(root, text="What are your past experiences?", bg="lightblue", font=("Arial", 12))
+experience_label.pack(pady=5)
+
+experience_text = tk.Text(root, height=4, width=40, font=("Arial", 12))
+experience_text.pack(pady=5)
+
+# Interests Input
+interests_label = tk.Label(root, text="What are your interests?", bg="lightblue", font=("Arial", 12))
+interests_label.pack(pady=5)
+
+interests_text = tk.Text(root, height=4, width=40, font=("Arial", 12))
+interests_text.pack(pady=5)
+
+# Job category dropdown
+job_var = tk.StringVar(root)
+job_var.set("Choose job category")
+
+job_options = ["Waitress/Waiter", "Retail", "Barista", "Customer Service", "Volunteer"]
+job_menu = tk.OptionMenu(root, job_var, *job_options)
+job_menu.config(bg="lightgreen", font=("Arial", 12))
+job_menu.pack(pady=10)
+
+# Postal code dropdown
+area_var = tk.StringVar(root)
+area_var.set("Choose your postal code")
+
+area_options = ["M5V-3L9", "S2V-9N2", "A0E-4N3"]
+area_menu = tk.OptionMenu(root, area_var, *area_options)
+area_menu.config(bg="lightgreen", font=("Arial", 12))
+area_menu.pack(pady=10)
+
+# Find Job button
+find_job_button = tk.Button(root, text="Find Job", command=find_job, bg="green", fg="white", font=("Arial", 14))
+find_job_button.pack(pady=20)
+
+# Run the main loop
+root.mainloop()
+
